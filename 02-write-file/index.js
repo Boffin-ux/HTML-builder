@@ -2,8 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const { stdin, stdout } = process;
 
-let count = 0;
-
 const exitNode = () => {
   stdout.write('Goodbye!');
   process.exit();
@@ -28,10 +26,8 @@ stdin.on('data', data => {
     data.toString(),
     err => {
       if (err) throw err;
-      if (count === 2) exitNode();
     }
   );
-  count++;
 });
 
 process.on('SIGINT', () => exitNode());
